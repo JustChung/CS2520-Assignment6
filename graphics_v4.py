@@ -46,12 +46,51 @@ SEE_THROUGH = pygame.Surface((800, 180))
 SEE_THROUGH.set_alpha(150)
 SEE_THROUGH.fill((124, 118, 135))
 
+
+def key_down_handler(event):
+    '''key down handler this controls the lights
+    param event: this is the event variable'''
+    global day, lights_on
+    if event.key == pygame.K_t:
+        lights_on = not lights_on
+    elif event.key == pygame.K_d:
+        day = not day
+
+
 def draw_cloud(x, y):
+    '''function draws cloud with x and y coordinates
+    param x: x coordinate of the cloud
+    param y: y coordinate of the cloud'''
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x, y + 8, 10, 10])
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 6, y + 4, 8, 8])
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 10, y, 16, 16])
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 20, y + 8, 10, 10])
     pygame.draw.rect(SEE_THROUGH, cloud_color, [x + 6, y + 8, 18, 10])
+
+
+
+def draw_fence(x, y):
+    '''function draws fence with x and y coordinates
+    param x: x coordinate of the fence
+    param y: y coordinate of the fence'''
+    y = 170
+    for x in range(5, 800, 30):
+        pygame.draw.polygon(screen, NIGHT_GRAY, [[x + 2, y], [x + 2, y + 15], [x, y + 15], [x, y]])
+
+    y = 170
+    for x in range(5, 800, 3):
+        pygame.draw.line(screen, NIGHT_GRAY, [x, y], [x, y + 15], 1)
+
+    x = 0
+    for y in range(170, 185, 4):
+        pygame.draw.line(screen, NIGHT_GRAY, [x, y], [x + 800, y], 1)
+
+    if day:
+        pygame.draw.ellipse(screen, BRIGHT_YELLOW, [520, 50, 40, 40])
+    else:
+        pygame.draw.ellipse(screen, WHITE, [520, 50, 40, 40]) 
+        pygame.draw.ellipse(screen, sky_color, [530, 45, 40, 40])
+    
 
 
 # Config
@@ -131,24 +170,7 @@ while not done:
     pygame.draw.rect(screen, stripe_color, [0, 492, 800, 82])
 
 
-    '''fence'''
-    y = 170
-    for x in range(5, 800, 30):
-        pygame.draw.polygon(screen, NIGHT_GRAY, [[x + 2, y], [x + 2, y + 15], [x, y + 15], [x, y]])
-
-    y = 170
-    for x in range(5, 800, 3):
-        pygame.draw.line(screen, NIGHT_GRAY, [x, y], [x, y + 15], 1)
-
-    x = 0
-    for y in range(170, 185, 4):
-        pygame.draw.line(screen, NIGHT_GRAY, [x, y], [x + 800, y], 1)
-
-    if day:
-        pygame.draw.ellipse(screen, BRIGHT_YELLOW, [520, 50, 40, 40])
-    else:
-        pygame.draw.ellipse(screen, WHITE, [520, 50, 40, 40]) 
-        pygame.draw.ellipse(screen, sky_color, [530, 45, 40, 40])
+   
 
     
     
@@ -201,7 +223,7 @@ while not done:
     pygame.draw.rect(screen, GRAY, [150, 60, 20, 140])
     pygame.draw.ellipse(screen, GRAY, [150, 195, 20, 10])
 
-    #lights
+    #lights part 1
     pygame.draw.line(screen, GRAY, [110, 60], [210, 60], 2)
     pygame.draw.ellipse(screen, light_color, [110, 40, 20, 20])
     pygame.draw.ellipse(screen, light_color, [130, 40, 20, 20])
@@ -220,9 +242,7 @@ while not done:
     pygame.draw.rect(screen, GRAY, [630, 60, 20, 140])
     pygame.draw.ellipse(screen, GRAY, [630, 195, 20, 10])
 
-    #lights
-
-        
+    #lights part 2
     pygame.draw.line(screen, GRAY, [590, 60], [690, 60], 2)
     pygame.draw.ellipse(screen, light_color, [590, 40, 20, 20])
     pygame.draw.ellipse(screen, light_color, [610, 40, 20, 20])
