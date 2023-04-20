@@ -90,19 +90,27 @@ def draw_fence(x, y):
     else:
         pygame.draw.ellipse(screen, WHITE, [520, 50, 40, 40]) 
         pygame.draw.ellipse(screen, sky_color, [530, 45, 40, 40])
-    
+
+def make_star(n):
+    '''function makes a star with a random x,y coordinate
+    param n: the number of stars to create
+    return: an array of created stars
+    '''
+    stars = []
+    for n in range(n):
+        x = random.randrange(0, 800)
+        y = random.randrange(0, 200)
+        r = random.randrange(1, 2)
+        stars.append([x, y, r, r])
+    return stars
+
 
 
 # Config
 lights_on = True
 day = True
 
-stars = []
-for n in range(200):
-    x = random.randrange(0, 800)
-    y = random.randrange(0, 200)
-    r = random.randrange(1, 2)
-    stars.append([x, y, r, r])
+stars = make_star(200)
 
 clouds = []
 for i in range(20):
