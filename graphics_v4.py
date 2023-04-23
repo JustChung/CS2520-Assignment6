@@ -378,3 +378,6 @@ while not done:
 
 # Close window and quit
 pygame.quit()
+
+#
+print("Testing commit")
