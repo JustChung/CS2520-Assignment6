@@ -104,19 +104,29 @@ def make_star(n):
         stars.append([x, y, r, r])
     return stars
 
+def make_cloud(n):
+    '''function makes a cloud with a random x,y coordinate
+    parm n: the number of clouds to create
+    return: an array of created clouds
+    '''
+    clouds = []
+    for i in range(n):
+        x = random.randrange(-100, 1600)
+        y = random.randrange(0, 150)
+        clouds.append([x, y])
+    return clouds
 
 
 # Config
 lights_on = True
 day = True
 
+# array of stars
 stars = make_star(200)
 
-clouds = []
-for i in range(20):
-    x = random.randrange(-100, 1600)
-    y = random.randrange(0, 150)
-    clouds.append([x, y])
+# array of clouds
+clouds = make_cloud(20)
+
     
 # Game loop
 done = False
