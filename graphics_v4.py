@@ -104,19 +104,51 @@ def make_star(n):
         stars.append([x, y, r, r])
     return stars
 
+def make_cloud(n):
+    '''function makes a cloud with a random x,y coordinate
+    parm n: the number of clouds to create
+    return: an array of created clouds
+    '''
+    clouds = []
+    for i in range(n):
+        x = random.randrange(-100, 1600)
+        y = random.randrange(0, 150)
+        clouds.append([x, y])
+    return clouds
 
+def display_star(stars):
+    '''function displays stars onto screen from the parameter array
+    parm stars: array of stars with specified x,y coordinate
+    return: none
+    '''
+    for s in stars:
+        pygame.draw.ellipse(screen, WHITE, s)
+
+def animate_cloud(clouds, speed):
+    '''function updates the each clouds' position to shift left by a 
+            specified speed and rotate back with a random y coordinate
+        param clouds: array of clouds with specified x,y coordinate to animate
+        param speed: specifies shift left animation speed
+        return: none
+    '''
+    # shifts clouds to left
+    for c in clouds:
+        c[0] -= speed
+    # rotates clouds back to right with a random y-coordinate
+    if c[0] < -100:
+        c[0] = random.randrange(800, 1600)
+        c[1] = random.randrange(0, 150)
 
 # Config
 lights_on = True
 day = True
 
+# array of stars
 stars = make_star(200)
 
-clouds = []
-for i in range(20):
-    x = random.randrange(-100, 1600)
-    y = random.randrange(0, 150)
-    clouds.append([x, y])
+# array of clouds
+clouds = make_cloud(20)
+
     
 # Game loop
 done = False
@@ -150,23 +182,18 @@ while not done:
         field_color = DARK_GREEN
         stripe_color = NIGHT_GREEN
         cloud_color = NIGHT_GRAY
-
-    for c in clouds:
-        c[0] -= 0.5
-
-        if c[0] < -100:
-            c[0] = random.randrange(800, 1600)
-            c[1] = random.randrange(0, 150)
+    
+    # Animates every cloud to shift left with a speed of 0.5 pixels per frame
+    animate_cloud(clouds, 0.5)
             
     # Drawing code (Describe the picture. It isn't actually drawn yet.)
     screen.fill(sky_color)
     SEE_THROUGH.fill(ck)
     SEE_THROUGH.set_colorkey(ck)
     
+    # Displays stars when display state is night (not day)
     if not day:
-    #stars
-        for s in stars:
-            pygame.draw.ellipse(screen, WHITE, s)
+        display_star(stars)
 
 
 
