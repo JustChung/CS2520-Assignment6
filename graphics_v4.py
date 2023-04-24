@@ -124,6 +124,21 @@ def display_star(stars):
     for s in stars:
         pygame.draw.ellipse(screen, WHITE, s)
 
+def animate_cloud(clouds, speed):
+    '''function updates the each clouds' position to shift left by a 
+            specified speed and rotate back with a random y coordinate
+        param clouds: array of clouds with specified x,y coordinate to animate
+        param speed: specifies shift left animation speed
+        return: void
+    '''
+    # shifts clouds to left
+    for c in clouds:
+        c[0] -= speed
+    # rotates clouds back to right with a random y-coordinate
+    if c[0] < -100:
+        c[0] = random.randrange(800, 1600)
+        c[1] = random.randrange(0, 150)
+
 # Config
 lights_on = True
 day = True
@@ -167,20 +182,16 @@ while not done:
         field_color = DARK_GREEN
         stripe_color = NIGHT_GREEN
         cloud_color = NIGHT_GRAY
-
-    for c in clouds:
-        c[0] -= 0.5
-
-        if c[0] < -100:
-            c[0] = random.randrange(800, 1600)
-            c[1] = random.randrange(0, 150)
+    
+    # Animates every cloud to shift left with a speed of 0.5 pixels per second
+    animate_cloud(clouds, 0.5)
             
     # Drawing code (Describe the picture. It isn't actually drawn yet.)
     screen.fill(sky_color)
     SEE_THROUGH.fill(ck)
     SEE_THROUGH.set_colorkey(ck)
     
-    #displays stars when display state is night (not day)
+    # Displays stars when display state is night (not day)
     if not day:
         display_star(stars)
 
