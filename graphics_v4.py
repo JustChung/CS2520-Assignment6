@@ -248,12 +248,12 @@ while not done:
         param color: the color to draw the goal in
         return: none
         '''
-        pygame.draw.rect(screen, WHITE, [320, 140, 160, 80], 5)
-        pygame.draw.line(screen, WHITE, [340, 200], [460, 200], 3)
-        pygame.draw.line(screen, WHITE, [320, 220], [340, 200], 3)
-        pygame.draw.line(screen, WHITE, [480, 220], [460, 200], 3)
-        pygame.draw.line(screen, WHITE, [320, 140], [340, 200], 3)
-        pygame.draw.line(screen, WHITE, [480, 140], [460, 200], 3)
+        pygame.draw.rect(screen, color, [320, 140, 160, 80], 5)
+        pygame.draw.line(screen, color, [340, 200], [460, 200], 3)
+        pygame.draw.line(screen, color, [320, 220], [340, 200], 3)
+        pygame.draw.line(screen, color, [480, 220], [460, 200], 3)
+        pygame.draw.line(screen, color, [320, 140], [340, 200], 3)
+        pygame.draw.line(screen, color, [480, 140], [460, 200], 3)
 
     #6 yard line goal box
     def draw_yard_line(screen, color):
@@ -262,13 +262,27 @@ while not done:
         param color: the color to draw the goal in
         return: none
         '''
-        pygame.draw.line(screen, WHITE, [310, 220], [270, 270], 3)
-        pygame.draw.line(screen, WHITE, [270, 270], [530, 270], 2)
-        pygame.draw.line(screen, WHITE, [530, 270], [490, 220], 3)
+        pygame.draw.line(screen, color, [310, 220], [270, 270], 3)
+        pygame.draw.line(screen, color, [270, 270], [530, 270], 2)
+        pygame.draw.line(screen, color, [530, 270], [490, 220], 3)
 
     #light pole 1
-    pygame.draw.rect(screen, GRAY, [150, 60, 20, 140])
-    pygame.draw.ellipse(screen, GRAY, [150, 195, 20, 10])
+    def draw_light_pole_1(screen, color, x, y):
+        '''function  
+        param screen: the screen surface where the light pole will be drawn on
+        param color: the color to draw the light pole in
+        param x: x coordinate to draw the light pole on
+        param y: y coordinate to draw the light pole on
+        pram width: the width of the light pole
+        param height: the height of the light pole
+        return: none
+        '''
+        pygame.draw.rect(screen, color, [x, y, 20, 140])
+        pygame.draw.ellipse(screen, color, [x, y+135, 20, 10])
+
+    # pygame.draw.rect(screen, GRAY, [150, 60, 20, 140])
+    # pygame.draw.ellipse(screen, GRAY, [150, 195, 20, 10])
+
 
     #lights part 1
     pygame.draw.line(screen, GRAY, [110, 60], [210, 60], 2)
@@ -305,7 +319,7 @@ while not done:
     pygame.draw.line(screen, GRAY, [590, 20], [690, 20], 2)
 
     def draw_net(screen, color):
-        '''function draws nwt using screen and color'''
+        '''function draws net using screen and color'''
     #net part 1
         pygame.draw.line(screen, WHITE, [325, 140], [341, 200], 1)
         pygame.draw.line(screen, WHITE, [330, 140], [344, 200], 1)
@@ -416,9 +430,13 @@ while not done:
     # Limit refresh rate of game loop 
     clock.tick(refresh_rate)
 
+    # trying to draw the objects on the screen permanently
+    # # calling the draw goal function
+    # draw_goal(screen, WHITE)
+    # draw_yard_line(screen, WHITE)
+    # draw_light_pole_1(screen, GRAY, 150, 60)
+    # draw_yard_line(screen, WHITE)
+    # pygame.display.update()
 
 # Close window and quit
 pygame.quit()
-
-#
-print("Testing commit")
