@@ -153,6 +153,16 @@ def draw_goal(screen, color):
     pygame.draw.line(screen, color, [320, 140], [340, 200], 3)
     pygame.draw.line(screen, color, [480, 140], [460, 200], 3)
 
+#stands left
+def draw_stands_left(screen, color, vertices):
+    '''function draws the stands on the left side using verticies
+    param screen: the screen surface where the stands will be drawn on
+    param color: the color to draw the stands in
+    param vertices: the verticies of the stands
+    return: none
+    '''
+    pygame.draw.polygon(screen, color, vertices)
+
 #stands right
 def draw_stands_right(screen, color, vertices):
     '''function draws the stands on the right side using verticies
@@ -384,6 +394,7 @@ while not done:
     pygame.draw.rect(screen, BLACK, [300, 40, 200, 90])
     pygame.draw.rect(screen, WHITE, [302, 42, 198, 88], 2)
 
+    # og draw light pole 1
     # pygame.draw.rect(screen, GRAY, [150, 60, 20, 140])
     # pygame.draw.ellipse(screen, GRAY, [150, 195, 20, 10])
 
@@ -426,7 +437,7 @@ while not done:
     pygame.draw.polygon(screen, WHITE, [[680, 180], [800, 100], [800, 290]])
 
   
-    #stands left
+    # calling the draw_stands_left function
     pygame.draw.polygon(screen, RED, [[120, 220], [0, 340], [0, 290], [120, 180]])
     pygame.draw.polygon(screen, WHITE, [[120, 180], [0, 100], [0, 290]])
     #people
@@ -450,7 +461,7 @@ while not done:
     #pygame.draw.arc(screen, ORANGE, [100, 100, 100, 100], 0, math.pi/2, 1)
     #pygame.draw.arc(screen, BLACK, [100, 100, 100, 100], 0, math.pi/2, 50)
 
-   # calling the draw_goal function
+    # calling the draw_goal function
     draw_goal(screen, WHITE)
     # calling the draw_yard_line function
     draw_yard_line(screen, WHITE)
