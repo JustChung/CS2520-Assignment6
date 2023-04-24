@@ -183,7 +183,7 @@ while not done:
         stripe_color = NIGHT_GREEN
         cloud_color = NIGHT_GRAY
     
-    # Animates every cloud to shift left with a speed of 0.5 pixels per second
+    # Animates every cloud to shift left with a speed of 0.5 pixels per frame
     animate_cloud(clouds, 0.5)
             
     # Drawing code (Describe the picture. It isn't actually drawn yet.)
