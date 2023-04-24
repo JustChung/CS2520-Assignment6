@@ -435,13 +435,23 @@ def draw_stands_right(screen, color, vertices):
     pygame.draw.polygon(screen, color, vertices)
     
     # calling the draw_stands_right function
-    pygame.draw.polygon(screen, RED, [[680, 220], [800, 340], [800, 290], [680, 180]])
-    pygame.draw.polygon(screen, WHITE, [[680, 180], [800, 100], [800, 290]])
+    draw_stands_right(screen, RED, [[680, 220], [800, 340], [800, 290], [680, 180]])
+    draw_stands_right(screen, WHITE, [[680, 180], [800, 100], [800, 290]])
 
   
     #stands left
-    pygame.draw.polygon(screen, RED, [[120, 220], [0, 340], [0, 290], [120, 180]])
-    pygame.draw.polygon(screen, WHITE, [[120, 180], [0, 100], [0, 290]])
+    def draw_stands_left(screen, color, vertices):
+        '''function draws the stands on the left side using verticies
+        param screen: the screen surface where the stands will be drawn on
+        param color: the color to draw the stands in
+        param vertices: the verticies of the stands
+        return: none
+        '''
+        pygame.draw.polygon(screen, color, vertices)
+
+    # calling the draw_stands_left function
+    draw_stands_left(screen, RED, [[120, 220], [0, 340], [0, 290], [120, 180]])
+    draw_stands_left(screen, WHITE, [[120, 180], [0, 100], [0, 290]])    
     #people
     
 
