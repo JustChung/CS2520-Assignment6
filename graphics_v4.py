@@ -116,6 +116,13 @@ def make_cloud(n):
         clouds.append([x, y])
     return clouds
 
+def display_star(stars):
+    '''function displays stars onto screen from the parameter array
+    parm stars: array of stars with specified x,y coordinate
+    return: void
+    '''
+    for s in stars:
+        pygame.draw.ellipse(screen, WHITE, s)
 
 # Config
 lights_on = True
@@ -173,10 +180,9 @@ while not done:
     SEE_THROUGH.fill(ck)
     SEE_THROUGH.set_colorkey(ck)
     
+    #displays stars when display state is night (not day)
     if not day:
-    #stars
-        for s in stars:
-            pygame.draw.ellipse(screen, WHITE, s)
+        display_star(stars)
 
 
 
