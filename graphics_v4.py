@@ -450,10 +450,12 @@ while not done:
     #pygame.draw.arc(screen, ORANGE, [100, 100, 100, 100], 0, math.pi/2, 1)
     #pygame.draw.arc(screen, BLACK, [100, 100, 100, 100], 0, math.pi/2, 50)
 
+   # calling the draw_goal function
     draw_goal(screen, WHITE)
+    # calling the draw_yard_line function
     draw_yard_line(screen, WHITE)
+    # calling the draw_light_pole_1 function
     draw_light_pole_1(screen, GRAY, 150, 60)
-    draw_yard_line(screen, WHITE)
 
     # Update screen (Actually draw the picture in the window.)
     pygame.display.flip()
