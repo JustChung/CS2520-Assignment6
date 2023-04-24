@@ -223,7 +223,18 @@ while not done:
     pygame.draw.line(screen, WHITE, [660, 220], [800, 360], 5)
 
     #safety circle
-    pygame.draw.ellipse(screen, WHITE, [240, 500, 320, 160], 5)
+    def draw_safety_circle(screen, color, rect, width=0):
+        '''function draws a safety circle by using a rectangle with coordinates and a width for the line thickness
+        param screen: the screen surface where the safety circle will be drawn on
+        param color: the color to draw the safety circle in
+        param rect: the rectangle coordinates from the user
+        param width: the line thickness
+        return: none
+        '''
+        pygame.draw.ellipse(screen, color, rect, width)
+    
+    # calling the draw_safery_circle function
+    draw_safety_circle(screen, WHITE, [240, 500, 320, 160], 5)
 
     #18 yard line goal box
     pygame.draw.line(screen, WHITE, [260, 220], [180, 300], 5)
