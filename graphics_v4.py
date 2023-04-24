@@ -233,17 +233,8 @@ while not done:
     #arc at the top of the goal box
     pygame.draw.arc(screen, WHITE, [330, 280, 140, 40], math.pi, 2 * math.pi, 5)
     
-    #score board pole 
-    def draw_scoreboard_pole(screen, color, x, y, width, height):
-        '''function draws a scoreboard pole by using x,y coordinates, width, and height
-        param screen: the screen surface where the scoreboard pole will be drawn on
-        param color: the color to draw the scoreboard pole in
-        return: none
-        '''
-        pygame.draw.rect(screen, color, [x, y, width, height])
-
-    # calling the draw_scoreboard pole function
-    draw_scoreboard_pole(screen, GRAY, 390, 120, 20, 70)
+    #score board pole
+    pygame.draw.rect(screen, GRAY, [390, 120, 20, 70])
 
     #score board
     pygame.draw.rect(screen, BLACK, [300, 40, 200, 90])
@@ -370,7 +361,7 @@ def draw_net(screen, color):
     pygame.draw.line(screen, WHITE, [470, 140], [456, 200], 1)
     pygame.draw.line(screen, WHITE, [475, 140], [459, 200], 1)
 
-#net part 2
+    #net part 2
     pygame.draw.line(screen, WHITE, [320, 140], [324, 216], 1)
     pygame.draw.line(screen, WHITE, [320, 140], [326, 214], 1)
     pygame.draw.line(screen, WHITE, [320, 140], [328, 212], 1)
@@ -381,6 +372,14 @@ def draw_net(screen, color):
     pygame.draw.line(screen, WHITE, [320, 140], [338, 202], 1)
 
     #net part 3
+    pygame.draw.line(screen, WHITE, [480, 140], [476, 216], 1)
+    pygame.draw.line(screen, WHITE, [480, 140], [474, 214], 1)
+    pygame.draw.line(screen, WHITE, [480, 140], [472, 212], 1)
+    pygame.draw.line(screen, WHITE, [480, 140], [470, 210], 1)
+    pygame.draw.line(screen, WHITE, [480, 140], [468, 208], 1)
+    pygame.draw.line(screen, WHITE, [480, 140], [466, 206], 1)
+    pygame.draw.line(screen, WHITE, [480, 140], [464, 204], 1)
+    pygame.draw.line(screen, WHITE, [480, 140], [462, 202], 1)
     pygame.draw.line(screen, WHITE, [480, 140], [476, 216], 1)
     pygame.draw.line(screen, WHITE, [480, 140], [474, 214], 1)
     pygame.draw.line(screen, WHITE, [480, 140], [472, 212], 1)
