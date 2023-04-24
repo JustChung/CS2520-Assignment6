@@ -126,10 +126,10 @@ def display_star(stars):
 
 def animate_cloud(clouds, speed):
     '''function updates the each clouds' position to shift left by a 
-            specified speed and rotate back with a random y coordinate
-        param clouds: array of clouds with specified x,y coordinate to animate
-        param speed: specifies shift left animation speed
-        return: none
+    specified speed and rotate back with a random y coordinate
+    param clouds: array of clouds with specified x,y coordinate to animate
+    param speed: specifies shift left animation speed
+    return: none
     '''
     # shifts clouds to left
     for c in clouds:
@@ -197,8 +197,26 @@ def draw_light_pole_1(screen, color, x, y):
     pygame.draw.rect(screen, color, [x, y, 20, 140])
     pygame.draw.ellipse(screen, color, [x, y+135, 20, 10])
 
-def draw_net(screen, color):
-    '''function draws net using screen and color'''
+#light pole 2
+def draw_light_pole_2(screen, color, x, y):
+    '''function  
+    param screen: the screen surface where the light pole will be drawn on
+    param color: the color to draw the light pole in
+    param x: x coordinate to draw the light pole on
+    param y: y coordinate to draw the light pole on
+    pram width: the width of the light pole
+    param height: the height of the light pole
+    return: none
+    '''
+    pygame.draw.rect(screen, color, [x, y, 20, 140])
+    pygame.draw.ellipse(screen, color, [x, y+135, 20, 10])
+
+def draw_net(screen, color, x, y):
+    '''function draws net using x and y coordinates
+    param screen: the screen surface where the net will be drawn on
+    param color: the color to draw the net in
+    return: none
+    '''
     #net part 1
     pygame.draw.line(screen, WHITE, [325, 140], [341, 200], 1)
     pygame.draw.line(screen, WHITE, [330, 140], [344, 200], 1)
@@ -385,9 +403,8 @@ while not done:
     pygame.draw.ellipse(screen, light_color, [190, 20, 20, 20])
     pygame.draw.line(screen, GRAY, [110, 20], [210, 20], 2)
 
-    #light pole 2
-    pygame.draw.rect(screen, GRAY, [630, 60, 20, 140])
-    pygame.draw.ellipse(screen, GRAY, [630, 195, 20, 10])
+    # calling the draw_light_pole_2 function
+    draw_light_pole_2(screen, GRAY, 630, 60)
 
     #lights part 2
     pygame.draw.line(screen, GRAY, [590, 60], [690, 60], 2)
