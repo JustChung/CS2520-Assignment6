@@ -222,16 +222,16 @@ while not done:
     #right
     pygame.draw.line(screen, WHITE, [660, 220], [800, 360], 5)
 
-    #safety circle
-    def draw_safety_circle(screen, color, rect, width=0):
-        '''function draws a safety circle by using a rectangle with coordinates and a width for the line thickness
-        param screen: the screen surface where the safety circle will be drawn on
-        param color: the color to draw the safety circle in
-        param rect: the rectangle coordinates from the user
-        param width: the line thickness
-        return: none
-        '''
-        pygame.draw.ellipse(screen, color, rect, width)
+#safety circle
+def draw_safety_circle(screen, color, rect, width=0):
+    '''function draws a safety circle by using a rectangle with coordinates and a width for the line thickness
+    param screen: the screen surface where the safety circle will be drawn on
+    param color: the color to draw the safety circle in
+    param rect: the rectangle coordinates from the user
+    param width: the line thickness
+    return: none
+    '''
+    pygame.draw.ellipse(screen, color, rect, width)
 
     # calling the draw_safery_circle function
     draw_safety_circle(screen, WHITE, [240, 500, 320, 160], 5)
@@ -244,14 +244,14 @@ while not done:
     #arc at the top of the goal box
     pygame.draw.arc(screen, WHITE, [330, 280, 140, 40], math.pi, 2 * math.pi, 5)
     
-    #score board pole 
-    def draw_scoreboard_pole(screen, color, x, y, width, height):
-        '''function draws a scoreboard pole by using x,y coordinates, width, and height
-        param screen: the screen surface where the scoreboard pole will be drawn on
-        param color: the color to draw the scoreboard pole in
-        return: none
-        '''
-        pygame.draw.rect(screen, color, [x, y, width, height])
+#score board pole 
+def draw_scoreboard_pole(screen, color, x, y, width, height):
+    '''function draws a scoreboard pole by using x,y coordinates, width, and height
+    param screen: the screen surface where the scoreboard pole will be drawn on
+    param color: the color to draw the scoreboard pole in
+    return: none
+    '''
+    pygame.draw.rect(screen, color, [x, y, width, height])
 
     # calling the draw_scoreboard pole function
     draw_scoreboard_pole(screen, GRAY, 390, 120, 20, 70)
@@ -261,47 +261,44 @@ while not done:
     pygame.draw.rect(screen, WHITE, [302, 42, 198, 88], 2)
 
 
-    #goal
-    def draw_goal(screen, color):
-        '''function draws a soccer goal by using x,y coordinates
-        param screen: the screen surface where the goal will be drawn on
-        param color: the color to draw the goal in
-        return: none
-        '''
-        pygame.draw.rect(screen, color, [320, 140, 160, 80], 5)
-        pygame.draw.line(screen, color, [340, 200], [460, 200], 3)
-        pygame.draw.line(screen, color, [320, 220], [340, 200], 3)
-        pygame.draw.line(screen, color, [480, 220], [460, 200], 3)
-        pygame.draw.line(screen, color, [320, 140], [340, 200], 3)
-        pygame.draw.line(screen, color, [480, 140], [460, 200], 3)
+#goal
+def draw_goal(screen, color, x, y):
+    '''function draws a soccer goal by using x,y coordinates
+    param screen: the screen surface where the goal will be drawn on
+    param color: the color to draw the goal in
+    return: none
+    '''
+    pygame.draw.rect(screen, color, [320, 140, 160, 80], 5)
+    pygame.draw.line(screen, color, [340, 200], [460, 200], 3)
+    pygame.draw.line(screen, color, [320, 220], [340, 200], 3)
+    pygame.draw.line(screen, color, [480, 220], [460, 200], 3)
+    pygame.draw.line(screen, color, [320, 140], [340, 200], 3)
+    pygame.draw.line(screen, color, [480, 140], [460, 200], 3)
 
-    #6 yard line goal box
-    def draw_yard_line(screen, color):
-        '''function draws a yard line by using x,y coordinates
-        param screen: the screen surface where the yard line will be drawn on
-        param color: the color to draw the goal in
-        return: none
-        '''
-        pygame.draw.line(screen, color, [310, 220], [270, 270], 3)
-        pygame.draw.line(screen, color, [270, 270], [530, 270], 2)
-        pygame.draw.line(screen, color, [530, 270], [490, 220], 3)
+#6 yard line goal box
+def draw_yard_line(screen, color, x, y):
+    '''function draws a yard line by using x,y coordinates
+    param screen: the screen surface where the yard line will be drawn on
+    param color: the color to draw the goal in
+    return: none
+    '''
+    pygame.draw.line(screen, color, [310, 220], [270, 270], 3)
+    pygame.draw.line(screen, color, [270, 270], [530, 270], 2)
+    pygame.draw.line(screen, color, [530, 270], [490, 220], 3)
 
-    #light pole 1
-    def draw_light_pole_1(screen, color, x, y):
-        '''function  
-        param screen: the screen surface where the light pole will be drawn on
-        param color: the color to draw the light pole in
-        param x: x coordinate to draw the light pole on
-        param y: y coordinate to draw the light pole on
-        pram width: the width of the light pole
-        param height: the height of the light pole
-        return: none
-        '''
-        pygame.draw.rect(screen, color, [x, y, 20, 140])
-        pygame.draw.ellipse(screen, color, [x, y+135, 20, 10])
-
-    # pygame.draw.rect(screen, GRAY, [150, 60, 20, 140])
-    # pygame.draw.ellipse(screen, GRAY, [150, 195, 20, 10])
+#light pole 1
+def draw_light_pole_1(screen, color, x, y):
+    '''function  
+    param screen: the screen surface where the light pole will be drawn on
+    param color: the color to draw the light pole in
+    param x: x coordinate to draw the light pole on
+    param y: y coordinate to draw the light pole on
+    pram width: the width of the light pole
+    param height: the height of the light pole
+    return: none
+    '''
+    pygame.draw.rect(screen, GRAY, [150, 60, 20, 140])
+    pygame.draw.ellipse(screen, GRAY, [150, 195, 20, 10])
 
 
     #lights part 1
@@ -319,7 +316,17 @@ while not done:
     pygame.draw.ellipse(screen, light_color, [190, 20, 20, 20])
     pygame.draw.line(screen, GRAY, [110, 20], [210, 20], 2)
 
-    #light pole 2
+#light pole 2
+def draw_light_pole_2(screen, color, x, y):
+    '''function  
+    param screen: the screen surface where the light pole will be drawn on
+    param color: the color to draw the light pole in
+    param x: x coordinate to draw the light pole on
+    param y: y coordinate to draw the light pole on
+    pram width: the width of the light pole
+    param height: the height of the light pole
+    return: none
+    '''
     pygame.draw.rect(screen, GRAY, [630, 60, 20, 140])
     pygame.draw.ellipse(screen, GRAY, [630, 195, 20, 10])
 
@@ -338,7 +345,7 @@ while not done:
     pygame.draw.ellipse(screen, light_color, [670, 20, 20, 20])
     pygame.draw.line(screen, GRAY, [590, 20], [690, 20], 2)
 
-def draw_net(screen, color):
+def draw_net(screen, color, x, y):
     '''function draws net using x and y coordinates
     param screen: the screen surface where the net will be drawn on
     param color: the color to draw the net in
@@ -418,14 +425,14 @@ def draw_net(screen, color):
     pygame.draw.line(screen, WHITE, [335, 196], [465, 196], 1)
 
     #stands right
-    def draw_stands_right(screen, color, vertices):
-        '''function draws the stands on the right side using verticies
-        param screen: the screen surface where the stands will be drawn on
-        param color: the color to draw the stands in
-        param vertices: the verticies of the stands
-        return: none
-        '''
-        pygame.draw.polygon(screen, color, vertices)
+def draw_stands_right(screen, color, vertices):
+    '''function draws the stands on the right side using verticies
+    param screen: the screen surface where the stands will be drawn on
+    param color: the color to draw the stands in
+    param vertices: the verticies of the stands
+    return: none
+    '''
+    pygame.draw.polygon(screen, color, vertices)
     
     # calling the draw_stands_right function
     pygame.draw.polygon(screen, RED, [[680, 220], [800, 340], [800, 290], [680, 180]])
