@@ -119,7 +119,7 @@ def make_cloud(n):
 def display_star(stars):
     '''function displays stars onto screen from the parameter array
     parm stars: array of stars with specified x,y coordinate
-    return: void
+    return: none
     '''
     for s in stars:
         pygame.draw.ellipse(screen, WHITE, s)
@@ -129,7 +129,7 @@ def animate_cloud(clouds, speed):
             specified speed and rotate back with a random y coordinate
         param clouds: array of clouds with specified x,y coordinate to animate
         param speed: specifies shift left animation speed
-        return: void
+        return: none
     '''
     # shifts clouds to left
     for c in clouds:
