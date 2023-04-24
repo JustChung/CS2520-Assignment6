@@ -278,7 +278,7 @@ while not done:
     pygame.draw.line(screen, GRAY, [590, 20], [690, 20], 2)
 
     def draw_net(screen, color):
-        '''function draws nwt using screen and color'''
+        '''function draws net using screen and color'''
     #net part 1
         pygame.draw.line(screen, WHITE, [325, 140], [341, 200], 1)
         pygame.draw.line(screen, WHITE, [330, 140], [344, 200], 1)
