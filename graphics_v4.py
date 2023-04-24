@@ -398,6 +398,16 @@ def draw_net(screen, color):
     pygame.draw.line(screen, WHITE, [335, 196], [465, 196], 1)
 
     #stands right
+    def draw_stands_right(screen, color, vertices):
+        '''function draws the stands on the right side using verticies
+        param screen: the screen surface where the stands will be drawn on
+        param color: the color to draw the stands in
+        param vertices: the verticies of the stands
+        return: none
+        '''
+        pygame.draw.polygon(screen, color, vertices)
+    
+    # calling the draw_stands_right function
     pygame.draw.polygon(screen, RED, [[680, 220], [800, 340], [800, 290], [680, 180]])
     pygame.draw.polygon(screen, WHITE, [[680, 180], [800, 100], [800, 290]])
 
