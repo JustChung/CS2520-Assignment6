@@ -269,6 +269,20 @@ def draw_safety_circle(screen, color, rect, width=0):
     '''
     pygame.draw.ellipse(screen, color, rect, width)
 
+def draw_corner_flags(screen, poleColor, flagColor):
+    '''function draws the corner flags with a user specified flag and pole color
+        param screen: the screen surface where the corner flags should be drawn
+        param poleColor: the color to fill for the pole
+        param flagColor: the color to fill for the flag
+    '''
+    #corner flag right
+    pygame.draw.line(screen, poleColor, [140, 220], [135, 190], 3)
+    pygame.draw.polygon(screen, flagColor, [[132, 190], [125, 196], [135, 205]])
+
+    #corner flag left
+    pygame.draw.line(screen, poleColor, [660, 220], [665, 190], 3)
+    pygame.draw.polygon(screen, flagColor, [[668, 190], [675, 196], [665, 205]]) 
+
 def draw_net(screen, color):
     '''function draws net using screen and color parameters
     param screen: the screen surface where the net will be drawn on
@@ -470,13 +484,7 @@ while not done:
     pygame.draw.polygon(screen, RED, [[120, 220], [0, 340], [0, 290], [120, 180]])
     pygame.draw.polygon(screen, WHITE, [[120, 180], [0, 100], [0, 290]])
     
-    #corner flag right
-    pygame.draw.line(screen, BRIGHT_YELLOW, [140, 220], [135, 190], 3)
-    pygame.draw.polygon(screen, RED, [[132, 190], [125, 196], [135, 205]])
-
-    #corner flag left
-    pygame.draw.line(screen, BRIGHT_YELLOW, [660, 220], [665, 190], 3)
-    pygame.draw.polygon(screen, RED, [[668, 190], [675, 196], [665, 205]]) 
+    draw_corner_flags(screen, BRIGHT_YELLOW, RED)
 
     # DARKNESS
     if not day and not lights_on:
