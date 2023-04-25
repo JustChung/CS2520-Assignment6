@@ -269,11 +269,40 @@ def draw_safety_circle(screen, color, rect, width=0):
     '''
     pygame.draw.ellipse(screen, color, rect, width)
 
+def draw_field_lines(screen, color):
+    '''function draws the field lines: boundrary, safety, yard, and goal lines
+    param screen: the screen surface where the safety circle will be drawn on
+    param color: the color the lines should be shaded in
+    return: none
+    '''
+    #out of bounds lines
+    pygame.draw.line(screen, color, [0, 580], [800, 580], 5)
+    #left
+    pygame.draw.line(screen, color, [0, 360], [140, 220], 5)
+    pygame.draw.line(screen, color, [140, 220], [660, 220], 3)
+    #right
+    pygame.draw.line(screen, color, [660, 220], [800, 360], 5)
+
+    # calling the draw_safery_circle function
+    draw_safety_circle(screen, color, [240, 500, 320, 160], 5)
+
+    #18 yard line goal box
+    pygame.draw.line(screen, color, [260, 220], [180, 300], 5)
+    pygame.draw.line(screen, color, [180, 300], [620, 300], 3)
+    pygame.draw.line(screen, color, [620, 300], [540, 220], 5)
+
+    # calling the draw_yard_line function
+    draw_yard_line(screen, color)
+    
+    #arc at the top of the goal box
+    pygame.draw.arc(screen, color, [330, 280, 140, 40], math.pi, 2 * math.pi, 5)
+
 def draw_corner_flags(screen, poleColor, flagColor):
     '''function draws the corner flags with a user specified flag and pole color
         param screen: the screen surface where the corner flags should be drawn
         param poleColor: the color to fill for the pole
         param flagColor: the color to fill for the flag
+        return: none
     '''
     #corner flag right
     pygame.draw.line(screen, poleColor, [140, 220], [135, 190], 3)
@@ -418,6 +447,7 @@ while not done:
     if not day:
         display_star(stars)
 
+    # Draws backdrop of field
     pygame.draw.rect(screen, field_color, [0, 180, 800 , 420])
     pygame.draw.rect(screen, stripe_color, [0, 180, 800, 42])
     pygame.draw.rect(screen, stripe_color, [0, 264, 800, 52])
@@ -428,25 +458,8 @@ while not done:
         draw_cloud(c[0], c[1])
     screen.blit(SEE_THROUGH, (0, 0))   
     
-
-    #out of bounds lines
-    pygame.draw.line(screen, WHITE, [0, 580], [800, 580], 5)
-    #left
-    pygame.draw.line(screen, WHITE, [0, 360], [140, 220], 5)
-    pygame.draw.line(screen, WHITE, [140, 220], [660, 220], 3)
-    #right
-    pygame.draw.line(screen, WHITE, [660, 220], [800, 360], 5)
-
-    # calling the draw_safery_circle function
-    draw_safety_circle(screen, WHITE, [240, 500, 320, 160], 5)
-
-    #18 yard line goal box
-    pygame.draw.line(screen, WHITE, [260, 220], [180, 300], 5)
-    pygame.draw.line(screen, WHITE, [180, 300], [620, 300], 3)
-    pygame.draw.line(screen, WHITE, [620, 300], [540, 220], 5)
-
-    #arc at the top of the goal box
-    pygame.draw.arc(screen, WHITE, [330, 280, 140, 40], math.pi, 2 * math.pi, 5)
+    # Calls the draw_field_lines function to display onto screen
+    draw_field_lines(screen, WHITE)
     
     # calling the draw_scoreboard pole function
     draw_scoreboard_pole(screen, GRAY, 390, 120, 20, 70)
@@ -457,9 +470,6 @@ while not done:
 
     # calling the draw_goal function
     draw_goal(screen, WHITE)
-
-    # calling the draw_yard_line function
-    draw_yard_line(screen, WHITE)
 
     # calling the draw_light_pole_1 function
     draw_light_pole_1(screen, GRAY, 150, 60)
