@@ -433,8 +433,7 @@ while not done:
 
     #arc at the top of the goal box
     pygame.draw.arc(screen, WHITE, [330, 280, 140, 40], math.pi, 2 * math.pi, 5)
-
-
+    
     # calling the draw_scoreboard pole function
     draw_scoreboard_pole(screen, GRAY, 390, 120, 20, 70)
 
@@ -442,9 +441,14 @@ while not done:
     pygame.draw.rect(screen, BLACK, [300, 40, 200, 90])
     pygame.draw.rect(screen, WHITE, [302, 42, 198, 88], 2)
 
-    # og draw light pole 1
-    # pygame.draw.rect(screen, GRAY, [150, 60, 20, 140])
-    # pygame.draw.ellipse(screen, GRAY, [150, 195, 20, 10])
+    # calling the draw_goal function
+    draw_goal(screen, WHITE)
+
+    # calling the draw_yard_line function
+    draw_yard_line(screen, WHITE)
+
+    # calling the draw_light_pole_1 function
+    draw_light_pole_1(screen, GRAY, 150, 60)
 
     # calling draw_lights_1 function
     draw_lights_1(screen, light_color, GRAY)
@@ -462,13 +466,10 @@ while not done:
     pygame.draw.polygon(screen, RED, [[680, 220], [800, 340], [800, 290], [680, 180]])
     pygame.draw.polygon(screen, WHITE, [[680, 180], [800, 100], [800, 290]])
 
-  
     # calling the draw_stands_left function
     pygame.draw.polygon(screen, RED, [[120, 220], [0, 340], [0, 290], [120, 180]])
     pygame.draw.polygon(screen, WHITE, [[120, 180], [0, 100], [0, 290]])
-    #people
     
-
     #corner flag right
     pygame.draw.line(screen, BRIGHT_YELLOW, [140, 220], [135, 190], 3)
     pygame.draw.polygon(screen, RED, [[132, 190], [125, 196], [135, 205]])
@@ -487,12 +488,6 @@ while not done:
     #pygame.draw.arc(screen, ORANGE, [100, 100, 100, 100], 0, math.pi/2, 1)
     #pygame.draw.arc(screen, BLACK, [100, 100, 100, 100], 0, math.pi/2, 50)
 
-    # calling the draw_goal function
-    draw_goal(screen, WHITE)
-    # calling the draw_yard_line function
-    draw_yard_line(screen, WHITE)
-    # calling the draw_light_pole_1 function
-    draw_light_pole_1(screen, GRAY, 150, 60)
 
     # Update screen (Actually draw the picture in the window.)
     pygame.display.flip()
