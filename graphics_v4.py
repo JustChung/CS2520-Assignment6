@@ -207,6 +207,25 @@ def draw_light_pole_1(screen, color, x, y):
     pygame.draw.rect(screen, color, [x, y, 20, 140])
     pygame.draw.ellipse(screen, color, [x, y+135, 20, 10])
 
+#light part 1
+def draw_lights_1(screen, light_color, color):
+    '''function draws the lights using the argumments: screen, light_color, color
+    param screen: the screen surface where the lightswill be drawn on
+    param color: the color to draw the lights
+    param x: x coordinate that will start at 110, each circle will be drawn 20 pixels right
+    return: none
+    '''
+    # Draw the horizontal lines
+    pygame.draw.line(screen, color, [110, 60], [210, 60], 2)
+    pygame.draw.line(screen, color, [110, 40], [210, 40], 2)
+    pygame.draw.line(screen, color, [110, 20], [210, 20], 2)
+
+    # Draw the circles
+    for i in range(5):
+        x = 110+i*20
+        pygame.draw.ellipse(screen, light_color, [x, 40, 20, 20])
+        pygame.draw.ellipse(screen, light_color, [x, 20, 20, 20])
+
 #light pole 2
 def draw_light_pole_2(screen, color, x, y):
     '''function  
@@ -220,6 +239,25 @@ def draw_light_pole_2(screen, color, x, y):
     '''
     pygame.draw.rect(screen, color, [x, y, 20, 140])
     pygame.draw.ellipse(screen, color, [x, y+135, 20, 10])
+
+#lights part 2
+def draw_lights_2(screen, light_color, color):
+    '''function draws the lights using the argumments: screen, light_color, color
+    param screen: the screen surface where the lightswill be drawn on
+    param color: the color to draw the lights
+    param x: x coordinate that will start at 590, each circle will be drawn 20 pixels right
+    return: none
+    '''
+    # Draw horizontal lines
+    pygame.draw.line(screen, color, [590, 60], [690, 60], 2)
+    pygame.draw.line(screen, color, [590, 40], [690, 40], 2)
+    pygame.draw.line(screen, color, [590, 20], [690, 20], 2)
+
+    # Draw circles
+    for i in range(5):
+        x = 590+i*20
+        pygame.draw.ellipse(screen, light_color, [x, 40, 20, 20])
+        pygame.draw.ellipse(screen, light_color, [x, 20, 20, 20])
 
 def draw_safety_circle(screen, color, rect, width=0):
     '''function draws a safety circle by using a rectangle with coordinates and a width for the line thickness
@@ -408,39 +446,14 @@ while not done:
     # pygame.draw.rect(screen, GRAY, [150, 60, 20, 140])
     # pygame.draw.ellipse(screen, GRAY, [150, 195, 20, 10])
 
-
-    #lights part 1
-    pygame.draw.line(screen, GRAY, [110, 60], [210, 60], 2)
-    pygame.draw.ellipse(screen, light_color, [110, 40, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [130, 40, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [150, 40, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [170, 40, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [190, 40, 20, 20])
-    pygame.draw.line(screen, GRAY, [110, 40], [210, 40], 2)
-    pygame.draw.ellipse(screen, light_color, [110, 20, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [130, 20, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [150, 20, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [170, 20, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [190, 20, 20, 20])
-    pygame.draw.line(screen, GRAY, [110, 20], [210, 20], 2)
+    # calling draw_lights_1 function
+    draw_lights_1(screen, light_color, GRAY)
 
     # calling the draw_light_pole_2 function
     draw_light_pole_2(screen, GRAY, 630, 60)
 
-    #lights part 2
-    pygame.draw.line(screen, GRAY, [590, 60], [690, 60], 2)
-    pygame.draw.ellipse(screen, light_color, [590, 40, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [610, 40, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [630, 40, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [650, 40, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [670, 40, 20, 20])
-    pygame.draw.line(screen, GRAY, [590, 40], [690, 40], 2)
-    pygame.draw.ellipse(screen, light_color, [590, 20, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [610, 20, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [630, 20, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [650, 20, 20, 20])
-    pygame.draw.ellipse(screen, light_color, [670, 20, 20, 20])
-    pygame.draw.line(screen, GRAY, [590, 20], [690, 20], 2)
+    # calling draw_lights_2 function
+    draw_lights_2(screen, light_color, GRAY)
 
     # calling draw_net function
     draw_net(screen, WHITE)
