@@ -46,7 +46,7 @@ SEE_THROUGH = pygame.Surface((800, 180))
 SEE_THROUGH.set_alpha(150)
 SEE_THROUGH.fill((124, 118, 135))
 
-
+# Functions
 def key_down_handler(event):
     '''key down handler this controls the lights
     param event: this is the event variable'''
@@ -55,7 +55,6 @@ def key_down_handler(event):
         lights_on = not lights_on
     elif event.key == pygame.K_d:
         day = not day
-
 
 def draw_cloud(x, y):
     '''function draws cloud with x and y coordinates
@@ -66,8 +65,6 @@ def draw_cloud(x, y):
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 10, y, 16, 16])
     pygame.draw.ellipse(SEE_THROUGH, cloud_color, [x + 20, y + 8, 10, 10])
     pygame.draw.rect(SEE_THROUGH, cloud_color, [x + 6, y + 8, 18, 10])
-
-
 
 def draw_fence(x, y):
     '''function draws fence with x and y coordinates
@@ -271,7 +268,7 @@ def draw_safety_circle(screen, color, rect, width=0):
 
 def draw_field_lines(screen, color):
     '''function draws the field lines: boundrary, safety, yard, and goal lines
-    param screen: the screen surface where the safety circle will be drawn on
+    param screen: the screen surface where the field lines will be drawn on
     param color: the color the lines should be shaded in
     return: none
     '''
@@ -513,9 +510,6 @@ while not done:
 
     # Limit refresh rate of game loop 
     clock.tick(refresh_rate)
-
-    # trying to draw the objects on the screen permanently
-    # # calling the draw goal function
 
 # Close window and quit
 pygame.quit()
